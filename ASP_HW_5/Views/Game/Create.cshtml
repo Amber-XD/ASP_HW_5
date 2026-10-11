@@ -1,0 +1,32 @@
+﻿
+@model ASP_HW_5.Models.Game
+
+<h1>Add Game</h1>
+
+<form method="post" action="/Game/Create">
+    <div>
+        <label>Game Title</label>
+        <input type="text" name="Title" placeholder="Game Title" required />
+    </div>
+
+    <div>
+        <label>Genre</label>
+        <input type="text" name="Genre" placeholder="Game Genre" required />
+    </div>
+
+    <div>
+        <label>Rating</label>
+        <input type="number" name="Rating" min="0" max="10" step="0.1" placeholder="Rating (0-10)" required />
+    </div>
+
+    <div>
+        <label>Completed</label>
+        <input type="checkbox" name="IsCompleted" value="true" />
+    </div>
+
+    <button type="submit">Create Game</button>
+</form>
+
+<p>
+    <a href="/Game/Index">Back to Games</a>
+</p>

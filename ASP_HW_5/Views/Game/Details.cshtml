@@ -1,0 +1,16 @@
+﻿
+@model ASP_HW_5.Models.Game
+
+<h1>Game Details</h1>
+
+<div class="card">
+    <h2>@Model.Title</h2>
+    <p>ID: @Model.Id</p>
+    <p>Genre: @Model.Genre</p>
+    <p>Rating: @Model.Rating</p>
+    <p>Completed: @(Model.IsCompleted ? "Yes" : "No")</p>
+</div>
+
+<p>
+    <a href="/Game/Index">Back to Games</a>
+</p>

@@ -1,0 +1,32 @@
+﻿
+@model List<ASP_HW_5.Models.Game>
+
+<h1>Completed Games</h1>
+
+<div class="counter">
+    <h2>@Model.Count</h2>
+    <p>Completed Games</p>
+</div>
+
+<div class="games">
+    @foreach (var game in Model)
+    {
+        <div class="card">
+            <h2>@game.Title</h2>
+            <p>Genre: @game.Genre</p>
+            <p>Rating: @game.Rating</p>
+            <p>ID: @game.Id</p>
+
+            <a href="/Game/Details/@game.Id">Details</a>
+
+            <form method="post" action="/Game/Delete">
+                <input type="hidden" name="id" value="@game.Id" />
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    }
+</div>
+
+<p>
+    <a href="/Game/Index">Back to Games</a>
+</p>

@@ -1,0 +1,41 @@
+﻿
+@model List<ASP_HW_5.Models.Game>
+
+<h1>Game Library</h1>
+
+<form method="get" action="/Game/Index">
+    <input type="text" name="genre" placeholder="Search by genre" />
+    <button type="submit">Search</button>
+    <a href="/Game/Index">Show all</a>
+</form>
+
+<div class="counter">
+    <h2>@Model.Count</h2>
+    <p>Games</p>
+</div>
+
+
+<div class="page-actions">
+    <a href="/Game/Create" class="action-button">+ Add Game</a>
+</div>
+
+
+<div class="games">
+    @foreach (var game in Model)
+    {
+        <div class="card">
+            <h2>@game.Title</h2>
+            <p>Genre: @game.Genre</p>
+            <p>Rating: @game.Rating</p>
+            <p>Completed: @(game.IsCompleted ? "Yes" : "No")</p>
+            <p>ID: @game.Id</p>
+
+            <a href="/Game/Details/@game.Id">Details</a>
+
+            <form method="post" action="/Game/Delete">
+                <input type="hidden" name="id" value="@game.Id" />
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    }
+</div>
